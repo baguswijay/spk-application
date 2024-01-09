@@ -23,7 +23,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            Sistem ini dapat membantu seseorang untuk mengambil keputusan dengan menggunakan Metode MOORA dan ORESTE.
+                            Sistem ini dapat membantu seseorang untuk mengambil keputusan dengan menggunakan Metode DECISION TABLE.
                             <br> Cara Penggunaan:
                             <ol>
                                 <li>Masuk ke menu "Kriteria & Bobot" untuk menambahkan kriteria beserta bobotnya.</li>

@@ -23,7 +23,7 @@ class CriteriaWeight extends Model
      */
     protected $fillable = [
         'name',
-        'type',
+        // 'type',
         'weight',
         'description',
     ];

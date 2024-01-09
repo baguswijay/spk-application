@@ -38,7 +38,7 @@ class CriteriaWeightController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'type' => 'required',
+            // 'type' => 'required',
             'weight' => 'required',
             'description' => 'required',
         ]);
@@ -82,7 +82,7 @@ class CriteriaWeightController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'type' => 'required',
+            // 'type' => 'required',
             'weight' => 'required',
             'description' => 'required',
         ]);

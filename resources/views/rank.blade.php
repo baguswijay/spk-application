@@ -25,7 +25,7 @@
                                         @foreach ($criteriaweights as $c)
                                         <th>{{$c->name}}</th>
                                         @endforeach
-                                        <th>Total</th>
+                                        <th>Hasil</th>
                                         <th>Rank</th>
                                     </tr>
                                 </thead>
@@ -40,8 +40,8 @@
                                             @foreach ($scr as $s)
                                                 <td>{{$s->rating}}</td>
                                             @endforeach
-                                            <td>{{$totalPerRow[$a->id]}}</td>
-                                            <td>{{$ranking[$a->id]}}</td>
+                                            {{-- <td>{{$totalPerRow[$a->id]}}</td>
+                                            <td>{{$ranking[$a->id]}}</td> --}}
                                         </tr>
                                     @endforeach
                                 </tbody>

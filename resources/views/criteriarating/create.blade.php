@@ -46,7 +46,7 @@
                                 <div class="form-group">
                                     <label for="description">Deskripsi</label>
                                     <div class="input-group">
-                                        <input id="description" type="text" class="form-control" placeholder="Contoh: Sangat Baik" name="description" required>
+                                        <input id="description" type="text" class="form-control" placeholder="Contoh: <10 atau 20" name="description" required>
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Kirim</button>

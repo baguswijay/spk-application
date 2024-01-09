@@ -34,9 +34,9 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Kode</th>
-                                        <th>Tipe</th>
+                                        {{-- <th>Tipe</th> --}}
                                         <th>Bobot</th>
-                                        <th>Deskripsi</th>
+                                        <th>Deskripsi Kriteria</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -45,7 +45,7 @@
                                     <tr>
                                         <td>{{ ++$i }}</td>
                                         <td>{{ $c->name}}</td>
-                                        <td>{{ $c->type}}</td>
+                                        {{-- <td>{{ $c->type}}</td> --}}
                                         <td>{{ $c->weight}}</td>
                                         <td>{{ $c->description}}</td>
                                         <td>

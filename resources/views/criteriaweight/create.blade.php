@@ -35,13 +35,13 @@
                                         <input id="name" type="text" class="form-control" placeholder="Contoh: C1" name="name" required>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="type">Tipe</label>
                                     <select class="form-control" id="type" name="type">
                                         <option value="benefit">Benefit</option>
                                         <option value="cost">Cost</option>
                                     </select>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label for="weight">Bobot</label>
                                     <div class="input-group">

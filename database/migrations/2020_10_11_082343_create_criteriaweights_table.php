@@ -16,7 +16,7 @@ class CreateCriteriaweightsTable extends Migration
         Schema::create('criteriaweights', function (Blueprint $table) {
             $table->id();
             $table->string('name', 100);
-            $table->enum('type', ['benefit','cost']);
+            // $table->enum('type', ['benefit','cost']);
             $table->float('weight');
             $table->string('description', 100);
             $table->timestamps();

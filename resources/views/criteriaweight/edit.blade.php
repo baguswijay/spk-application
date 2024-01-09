@@ -36,7 +36,7 @@
                                         <input id="name" type="text" class="form-control" placeholder="Contoh: C1" name="name" value="{{ $criteriaweight->name }}" required>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <label for="type">Tipe</label>
                                     <select class="form-control" id="type" name="type">
                                         @if ($criteriaweight->type == "benefit")
@@ -47,7 +47,7 @@
                                         <option value="cost" selected='selected'>Cost</option>
                                         @endif
                                     </select>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <label for="weight">Bobot</label>
                                     <div class="input-group">

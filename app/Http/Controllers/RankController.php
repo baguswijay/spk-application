@@ -59,59 +59,61 @@ class RankController extends Controller
         // Inisialisasi array untuk menyimpan total nilai per baris
         $totalPerRow = [];
 
+        
         // Normalisasi
-        foreach ($alternatives as $a) {
-            // Mendapatkan semua skor untuk setiap id alternatif
-            $afilter = $scores->where('ida', $a->id)->values()->all();
-            // Melakukan loop pada setiap kriteria
-            foreach ($criteriaweights as $icw => $cw) {
-                // Mendapatkan semua nilai rating untuk setiap kriteria
-                $rates = $cscores->map(function ($val) use ($cw) {
-                    if ($cw->id == $val->idw) {
-                        return $val->rating;
-                    }
-                })->toArray();
+        // foreach ($alternatives as $a) {
+        //     // Mendapatkan semua skor untuk setiap id alternatif
+        //     $afilter = $scores->where('ida', $a->id)->values()->all();
+        //     // Melakukan loop pada setiap kriteria
+        //     foreach ($criteriaweights as $icw => $cw) {
+        //         // Mendapatkan semua nilai rating untuk setiap kriteria
+        //         $rates = $cscores->map(function ($val) use ($cw) {
+        //             if ($cw->id == $val->idw) {
+        //                 return $val->rating;
+        //             }
+        //         })->toArray();
 
-                // array_filter digunakan untuk menghapus nilai null yang disebabkan oleh map,
-                // array_values digunakan untuk mengindeks kembali array
-                $rates = array_values(array_filter($rates));
+        //         // array_filter digunakan untuk menghapus nilai null yang disebabkan oleh map,
+        //         // array_values digunakan untuk mengindeks kembali array
+        //         $rates = array_values(array_filter($rates));
 
-                $total = 0;
-                foreach ($rates as $value) {
-                    $total += pow($value, 2);
-                }
-                $sqrt = sqrt($total);
-                $normalisasi = $afilter[$icw]->rating / $sqrt;
+        //         $total = 0;
+        //         foreach ($rates as $value) {
+        //             $total += pow($value, 2);
+        //         }
+        //         $sqrt = sqrt($total);
+        //         $normalisasi = $afilter[$icw]->rating / $sqrt;
 
-                // Menghitung Nilai Distance Score
-                $r1 = $normalisasi;
-                $r2 = $cw->id;
-                $distance = pow(pow(0.5 * $r1, 3) + pow(0.5 * $r2, 3), 1/3);
+        //         // Menghitung Nilai Distance Score
+        //         $r1 = $normalisasi;
+        //         $r2 = $cw->id;
+        //         $distance = pow(pow(0.5 * $r1, 3) + pow(0.5 * $r2, 3), 1/3);
 
-                // Mengghitung Nilai Preferensi dan Nilai Distance Score
-                $pref = $distance * $cw->weight;
-                $result = round($pref, 15);
-                $afilter[$icw]->rating = number_format($result, 2, '.', '');
+        //         // Mengghitung Nilai Preferensi dan Nilai Distance Score
+        //         $pref = $distance * $cw->weight;
+        //         $result = round($pref, 15);
+        //         $afilter[$icw]->rating = number_format($result, 2, '.', '');
 
-                // Tambahkan total ke dalam array total per baris
-                if (!isset($totalPerRow[$a->id])) {
-                    $totalPerRow[$a->id] = $result;
-                } else {
-                    $totalPerRow[$a->id] += $result;
-                }
-            }
-        }
+        //         // Tambahkan total ke dalam array total per baris
+        //         if (!isset($totalPerRow[$a->id])) {
+        //             $totalPerRow[$a->id] = $result;
+        //         } else {
+        //             $totalPerRow[$a->id] += $result;
+        //         }
+        //     }
+        // }
 
         // Melakukan perangkingan berdasarkan total nilai per baris
-        $ranking = $totalPerRow;
-        arsort($ranking);
+        // $ranking = $totalPerRow;
+        // arsort($ranking);
 
-        // Menghitung peringkat (rank)
-        $rank = 1;
-        foreach ($ranking as $key => $value) {
-            $ranking[$key] = $rank++;
-        }
+        // // Menghitung peringkat (rank)
+        // $rank = 1;
+        // foreach ($ranking as $key => $value) {
+        //     $ranking[$key] = $rank++;
+        // }
 
-        return view('rank', compact('scores', 'alternatives', 'criteriaweights', 'totalPerRow', 'ranking'))->with('i', 0);
+        // return view('rank', compact('scores', 'alternatives', 'criteriaweights', 'totalPerRow', 'ranking'))->with('i', 0);
+        return view('rank', compact('scores', 'alternatives', 'criteriaweights'))->with('i', 0);
     }
 }
